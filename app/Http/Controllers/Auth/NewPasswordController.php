@@ -12,15 +12,13 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rules;
 use Illuminate\Validation\ValidationException;
 
-class NewPasswordController extends Controller
-{
+class NewPasswordController extends Controller {
     /**
      * Handle an incoming new password request.
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): JsonResponse
-    {
+    public function store(Request $request): JsonResponse {
         $request->validate([
             'token' => ['required'],
             'email' => ['required', 'email'],

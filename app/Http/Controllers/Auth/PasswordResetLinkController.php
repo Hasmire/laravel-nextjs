@@ -8,15 +8,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 
-class PasswordResetLinkController extends Controller
-{
+class PasswordResetLinkController extends Controller {
     /**
      * Handle an incoming password reset link request.
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): JsonResponse
-    {
+    public function store(Request $request): JsonResponse {
         $request->validate([
             'email' => ['required', 'email'],
         ]);
