@@ -21,6 +21,7 @@ const DeleteUserForm = () => {
   const passwordInput = useRef<HTMLInputElement>()
   const [password, setPassword] = useState('')
   const [errors, setErrors] = useState<ErrorObject>({})
+  // eslint-disable-next-line no-unused-vars
   const [status, setStatus] = useState<string | null>(null)
 
   const confirmUserDeletion = () => {
