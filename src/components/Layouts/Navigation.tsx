@@ -1,17 +1,16 @@
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 import ApplicationLogo from '@/components/ApplicationLogo'
 import Dropdown from '@/components/Dropdown'
-import Link from 'next/link'
 import NavLink from '@/components/NavLink'
 import ResponsiveNavLink, {
   ResponsiveNavButton,
 } from '@/components/ResponsiveNavLink'
-import { DropdownButton } from '@/components/DropdownLink'
-import DropdownLink from '@/components/DropdownLink'
+import DropdownLink, { DropdownButton } from '@/components/DropdownLink'
 import { useAuth, User } from '@/hooks/auth'
-import { useRouter } from 'next/router'
-import { useState } from 'react'
 
-const Navigation = (user?: User) => {
+function Navigation(user?: User) {
   const router = useRouter()
   const { logout } = useAuth({ middleware: 'auth' })
   const [open, setOpen] = useState(false)

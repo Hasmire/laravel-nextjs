@@ -1,13 +1,13 @@
 import { useState, FormEventHandler, useEffect } from 'react'
+import { Transition } from '@headlessui/react'
 import Input from '@/components/Input'
 import InputError from '@/components/InputError'
 import Label from '@/components/Label'
 import axios, { csrf } from '@/lib/axios'
 import { useAuth } from '@/hooks/auth'
-import { Transition } from '@headlessui/react'
 import PrimaryButton from '@/components/PrimaryButton'
 
-const UpdateProfileInformationForm = () => {
+function UpdateProfileInformationForm() {
   const { user, resendEmailVerification } = useAuth({ middleware: 'auth' })
 
   const [name, setName] = useState('')
@@ -31,7 +31,7 @@ const UpdateProfileInformationForm = () => {
     setStatus(null)
 
     axios
-      .put('/api/profile', { name: name, email: email })
+      .put('/api/profile', { name, email })
       .then(response => setStatus(response.data.status))
       .catch(error => {
         if (error.response.status !== 422) throw error
@@ -114,7 +114,7 @@ const UpdateProfileInformationForm = () => {
 
           {status === 'profile-updated' && (
             <Transition
-              show={true}
+              show
               enterFrom="opacity-0"
               leaveTo="opacity-0"
               className="transition ease-in-out">

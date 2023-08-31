@@ -1,11 +1,11 @@
+import { useState } from 'react'
 import AuthCard from '@/components/AuthCard'
 import AuthSessionStatus from '@/components/AuthSessionStatus'
 import GuestLayout from '@/components/Layouts/GuestLayout'
 import PrimaryButton from '@/components/PrimaryButton'
 import { useAuth } from '@/hooks/auth'
-import { useState } from 'react'
 
-const VerifyEmail = () => {
+function VerifyEmail() {
   const { logout, resendEmailVerification } = useAuth({
     middleware: 'auth',
     redirectIfAuthenticated: '/dashboard',

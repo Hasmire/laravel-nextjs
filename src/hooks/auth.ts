@@ -1,7 +1,7 @@
 import useSWR from 'swr'
-import axios, { csrf } from '@/lib/axios'
 import { useEffect, Dispatch, SetStateAction } from 'react'
 import { useRouter } from 'next/router'
+import axios, { csrf } from '@/lib/axios'
 
 declare type AuthMiddleware = 'auth' | 'guest'
 
@@ -105,7 +105,7 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: IUseAuth) => {
     axios
       .post('/reset-password', { token: router.query.token, ...props })
       .then(response =>
-        router.push('/login?reset=' + btoa(response.data.status)),
+        router.push(`/login?reset=${btoa(response.data.status)}`),
       )
       .catch(error => {
         if (error.response.status !== 422) throw error

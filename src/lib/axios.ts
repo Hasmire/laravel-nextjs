@@ -7,9 +7,9 @@ const axios = Axios.create({
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
   },
-  baseURL: baseURL,
+  baseURL,
 })
 
-export const csrf = () => axios.get(baseURL + '/sanctum/csrf-cookie')
+export const csrf = () => axios.get(`${baseURL}/sanctum/csrf-cookie`)
 
 export default axios

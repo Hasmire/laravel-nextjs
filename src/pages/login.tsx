@@ -1,18 +1,18 @@
-import AuthCard from '@/components/AuthCard'
-import AuthSessionStatus from '@/components/AuthSessionStatus'
-import GuestLayout from '@/components/Layouts/GuestLayout'
-import Input from '@/components/Input'
-import InputError from '@/components/InputError'
-import Label from '@/components/Label'
 import Link from 'next/link'
-import { useAuth } from '@/hooks/auth'
 import { useEffect, useState, FormEventHandler } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import Checkbox from '@/components/Checkbox'
-import PrimaryButton from '@/components/PrimaryButton'
+import AuthCard from '../components/AuthCard'
+import AuthSessionStatus from '../components/AuthSessionStatus'
+import GuestLayout from '../components/Layouts/GuestLayout'
+import Input from '../components/Input'
+import InputError from '../components/InputError'
+import Label from '../components/Label'
+import { useAuth } from '../hooks/auth'
+import Checkbox from '../components/Checkbox'
+import PrimaryButton from '../components/PrimaryButton'
 
-const Login = () => {
+function Login() {
   const { query } = useRouter()
 
   const { login } = useAuth({
@@ -68,7 +68,7 @@ const Login = () => {
               className="block mt-1 w-full"
               onChange={event => setEmail(event.target.value)}
               required
-              isFocused={true}
+              isFocused
             />
 
             <InputError messages={errors.email} className="mt-2" />

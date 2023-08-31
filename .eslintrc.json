@@ -13,7 +13,10 @@
     "commonjs": true
   },
   "extends": [
-    "eslint:recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended"
   ],
@@ -25,9 +28,15 @@
     "requireConfigFile": false,
     "babelOptions": {
       "presets": ["@babel/preset-react"]
-    }
+    },
+    "project": "./tsconfig.json"
   },
-  "plugins": ["react", "@next/eslint-plugin-next", "prettier"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "@next/eslint-plugin-next",
+    "prettier"
+  ],
   "rules": {
     "import/prefer-default-export": 0,
     "no-console": "warn",
@@ -36,10 +45,7 @@
     "no-unused-expressions": ["error", { "allowTernary": true }],
     "camelcase": 0,
     "react/self-closing-comp": 1,
-    "react/jsx-filename-extension": [
-      1,
-      { "extensions": [".js", "jsx", ".tsx"] }
-    ],
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "react/prop-types": 0,
     "react/destructuring-assignment": 0,
     "react/jsx-no-comment-textnodes": 0,

@@ -1,13 +1,13 @@
+import { Transition } from '@headlessui/react'
+import { FormEventHandler, useState } from 'react'
 import Input from '@/components/Input'
 import InputError from '@/components/InputError'
 import Label from '@/components/Label'
-import { Transition } from '@headlessui/react'
 
-import { FormEventHandler, useState } from 'react'
 import axios, { csrf } from '@/lib/axios'
 import PrimaryButton from '@/components/PrimaryButton'
 
-const UpdatePasswordForm = () => {
+function UpdatePasswordForm() {
   const [currentPassword, setCurrentPassword] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
@@ -37,7 +37,7 @@ const UpdatePasswordForm = () => {
     axios
       .put('/api/password', {
         current_password: currentPassword,
-        password: password,
+        password,
         password_confirmation: passwordConfirmation,
       })
       .then(response => setStatus(response.data.status))
@@ -111,7 +111,7 @@ const UpdatePasswordForm = () => {
 
           {status === 'password-updated' && (
             <Transition
-              show={true}
+              show
               enterFrom="opacity-0"
               leaveTo="opacity-0"
               className="transition ease-in-out">

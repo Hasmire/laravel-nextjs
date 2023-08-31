@@ -14,7 +14,7 @@ type ErrorObject = {
   password_confirmation?: string[]
 }
 
-const DeleteUserForm = () => {
+function DeleteUserForm() {
   const { logout } = useAuth({ middleware: 'auth' })
 
   const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false)
@@ -45,7 +45,7 @@ const DeleteUserForm = () => {
     setStatus(null)
 
     axios
-      .delete('/api/profile', { data: { password: password } })
+      .delete('/api/profile', { data: { password } })
       .then(response => {
         setStatus(response.data.status)
 

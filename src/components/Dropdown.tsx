@@ -8,13 +8,13 @@ interface Props {
   trigger: React.ReactNode
 }
 
-const Dropdown = ({
+function Dropdown({
   align = 'right',
   width = '48',
   contentClasses = 'py-1 bg-white dark:bg-gray-700',
   trigger,
   children,
-}: PropsWithChildren<Props>) => {
+}: PropsWithChildren<Props>) {
   let alignmentClasses = ''
 
   switch (align) {

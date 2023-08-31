@@ -1,10 +1,10 @@
-import AppLayout from '@/components/Layouts/AppLayout'
 import Head from 'next/head'
+import AppLayout from '@/components/Layouts/AppLayout'
 import UpdateProfileInformationForm from './partials/UpdateProfileInformationForm'
 import DeleteUserForm from './partials/DeleteUserForm'
 import UpdatePasswordForm from './partials/UpdatePasswordForm'
 
-const Profile = () => {
+function Profile() {
   return (
     <AppLayout
       header={

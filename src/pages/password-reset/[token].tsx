@@ -1,10 +1,3 @@
-import AuthCard from '@/components/AuthCard'
-import AuthSessionStatus from '@/components/AuthSessionStatus'
-import GuestLayout from '@/components/Layouts/GuestLayout'
-import Input from '@/components/Input'
-import InputError from '@/components/InputError'
-import Label from '@/components/Label'
-import { useAuth } from '@/hooks/auth'
 import {
   useEffect,
   useState,
@@ -13,9 +6,16 @@ import {
   Dispatch,
 } from 'react'
 import { useRouter } from 'next/router'
-import PrimaryButton from '@/components/PrimaryButton'
+import AuthCard from '../../components/AuthCard'
+import AuthSessionStatus from '../../components/AuthSessionStatus'
+import GuestLayout from '../../components/Layouts/GuestLayout'
+import Input from '../../components/Input'
+import InputError from '../../components/InputError'
+import Label from '../../components/Label'
+import { useAuth } from '../../hooks/auth'
+import PrimaryButton from '../../components/PrimaryButton'
 
-const PasswordReset = () => {
+function PasswordReset() {
   const { query } = useRouter()
 
   const { resetPassword } = useAuth({ middleware: 'guest' })

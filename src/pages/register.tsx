@@ -1,15 +1,15 @@
-import AuthCard from '@/components/AuthCard'
-import GuestLayout from '@/components/Layouts/GuestLayout'
-import Input from '@/components/Input'
-import InputError from '@/components/InputError'
-import Label from '@/components/Label'
 import Link from 'next/link'
-import { useAuth } from '@/hooks/auth'
 import { useState, FormEventHandler } from 'react'
 import Head from 'next/head'
-import PrimaryButton from '@/components/PrimaryButton'
+import AuthCard from '../components/AuthCard'
+import GuestLayout from '../components/Layouts/GuestLayout'
+import Input from '../components/Input'
+import InputError from '../components/InputError'
+import Label from '../components/Label'
+import { useAuth } from '../hooks/auth'
+import PrimaryButton from '../components/PrimaryButton'
 
-const Register = () => {
+function Register() {
   const { register } = useAuth({
     middleware: 'guest',
     redirectIfAuthenticated: '/dashboard',
