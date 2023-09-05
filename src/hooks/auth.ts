@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 import { useEffect, Dispatch, SetStateAction } from 'react'
 import { useRouter } from 'next/router'
-import axios, { csrf } from '@/lib/axios'
+import axios, { csrf } from '../lib/axios'
 
 declare type AuthMiddleware = 'auth' | 'guest'
 
@@ -37,8 +37,8 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: IUseAuth) => {
     axios
       .get('/api/user')
       .then(res => res.data)
-      .catch(error => {
-        if (error.response.status !== 409) throw error
+      .catch(err => {
+        if (err.response.status !== 409) throw err
 
         router.push('/verify-email')
       }),
@@ -54,10 +54,10 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: IUseAuth) => {
     axios
       .post('/register', props)
       .then(() => mutate())
-      .catch(error => {
-        if (error.response.status !== 422) throw error
+      .catch(err => {
+        if (err.response.status !== 422) throw err
 
-        setErrors(error.response.data.errors)
+        setErrors(err.response.data.errors)
       })
   }
 
@@ -72,9 +72,9 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: IUseAuth) => {
     axios
       .post('/login', props)
       .then(() => mutate())
-      .catch(error => {
-        if (error.response.status !== 422) throw error
-        setErrors(error.response.data.errors)
+      .catch(err => {
+        if (err.response.status !== 422) throw err
+        setErrors(err.response.data.errors)
       })
   }
 
@@ -88,10 +88,10 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: IUseAuth) => {
     axios
       .post('/forgot-password', { email })
       .then(response => setStatus(response.data.status))
-      .catch(error => {
-        if (error.response.status !== 422) throw error
+      .catch(err => {
+        if (err.response.status !== 422) throw err
 
-        setErrors(error.response.data.errors)
+        setErrors(err.response.data.errors)
       })
   }
 
@@ -107,10 +107,10 @@ export const useAuth = ({ middleware, redirectIfAuthenticated }: IUseAuth) => {
       .then(response =>
         router.push(`/login?reset=${btoa(response.data.status)}`),
       )
-      .catch(error => {
-        if (error.response.status !== 422) throw error
+      .catch(err => {
+        if (err.response.status !== 422) throw err
 
-        setErrors(error.response.data.errors)
+        setErrors(err.response.data.errors)
       })
   }
 

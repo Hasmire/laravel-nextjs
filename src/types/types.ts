@@ -21,12 +21,9 @@ export type UserDetails = {
   id: number
   name: string
   email: string
-  role: UserRole
 }
 
 export type UserSettings = {
   darkMode: boolean
   notifications: boolean
 }
-
-export type UserRole = {}

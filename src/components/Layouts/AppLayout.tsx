@@ -1,6 +1,6 @@
 import { PropsWithChildren, ReactNode } from 'react'
-import Navigation from '@/components/Layouts/Navigation'
-import { useAuth } from '@/hooks/auth'
+import Navigation from './Navigation'
+import { useAuth } from '../../hooks/auth'
 
 interface Props {
   header: ReactNode

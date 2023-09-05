@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import Link from 'next/link'
 import { useEffect, useState, FormEventHandler } from 'react'
 import { useRouter } from 'next/router'
@@ -23,7 +24,7 @@ function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [shouldRemember, setShouldRemember] = useState(false)
-  const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState<any>([])
   const [status, setStatus] = useState<string | null>(null)
 
   useEffect(() => {

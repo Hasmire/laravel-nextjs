@@ -1,18 +1,12 @@
 import { FormEventHandler, useRef, useState } from 'react'
-import DangerButton from '@/components/DangerButton'
-import axios, { csrf } from '@/lib/axios'
-import Modal from '@/components/Modal'
-import Label from '@/components/Label'
-import Input from '@/components/Input'
-import InputError from '@/components/InputError'
-import SecondaryButton from '@/components/SecondaryButton'
-import { useAuth } from '@/hooks/auth'
-
-type ErrorObject = {
-  email?: string[]
-  password?: string[]
-  password_confirmation?: string[]
-}
+import DangerButton from '../../../components/DangerButton'
+import axios, { csrf } from '../../../lib/axios'
+import Modal from '../../../components/Modal'
+import Label from '../../../components/Label'
+import Input from '../../../components/Input'
+import InputError from '../../../components/InputError'
+import SecondaryButton from '../../../components/SecondaryButton'
+import { useAuth } from '../../../hooks/auth'
 
 function DeleteUserForm() {
   const { logout } = useAuth({ middleware: 'auth' })
@@ -20,8 +14,8 @@ function DeleteUserForm() {
   const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false)
   const passwordInput = useRef<HTMLInputElement>()
   const [password, setPassword] = useState('')
-  const [errors, setErrors] = useState<ErrorObject>({})
-  // eslint-disable-next-line no-unused-vars
+  const [errors, setErrors] = useState<any>([])
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [status, setStatus] = useState<string | null>(null)
 
   const confirmUserDeletion = () => {
@@ -37,11 +31,7 @@ function DeleteUserForm() {
 
     await csrf()
 
-    setErrors({
-      email: [],
-      password: [],
-      password_confirmation: [],
-    })
+    setErrors([])
     setStatus(null)
 
     axios

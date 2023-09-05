@@ -38,6 +38,8 @@
     "prettier"
   ],
   "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "import/prefer-default-export": 0,
     "no-console": "warn",
     "no-nested-ternary": 0,

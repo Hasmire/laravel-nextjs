@@ -23,11 +23,7 @@ function PasswordReset() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
-  const [errors, setErrors] = useState<{
-    email?: string[]
-    password?: string[]
-    password_confirmation?: string[]
-  }>({})
+  const [errors, setErrors] = useState<any>([])
   const [status, setStatus] = useState(null)
 
   const submitForm: FormEventHandler = event => {
@@ -43,9 +39,9 @@ function PasswordReset() {
   }
 
   useEffect(() => {
-    const email = query && query.email ? (query.email as string) : ''
+    const mail = query && query.email ? (query.email as string) : ''
 
-    setEmail(email)
+    setEmail(mail)
   }, [query.email])
 
   return (

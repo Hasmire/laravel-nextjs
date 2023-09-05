@@ -1,14 +1,12 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import ApplicationLogo from '@/components/ApplicationLogo'
-import Dropdown from '@/components/Dropdown'
-import NavLink from '@/components/NavLink'
-import ResponsiveNavLink, {
-  ResponsiveNavButton,
-} from '@/components/ResponsiveNavLink'
-import DropdownLink, { DropdownButton } from '@/components/DropdownLink'
-import { useAuth, User } from '@/hooks/auth'
+import ApplicationLogo from '../ApplicationLogo'
+import Dropdown from '../Dropdown'
+import NavLink from '../NavLink'
+import ResponsiveNavLink, { ResponsiveNavButton } from '../ResponsiveNavLink'
+import DropdownLink, { DropdownButton } from '../DropdownLink'
+import { useAuth, User } from '../../hooks/auth'
 
 function Navigation(user?: User) {
   const router = useRouter()
@@ -46,7 +44,9 @@ function Navigation(user?: User) {
                 width="48"
                 trigger={
                   <span className="inline-flex rounded-md">
-                    <button className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
+                    <button
+                      type="button"
+                      className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                       {user?.name}
 
                       <svg
@@ -73,7 +73,8 @@ function Navigation(user?: User) {
           {/* Hamburger */}
           <div className="-mr-2 flex items-center sm:hidden">
             <button
-              onClick={() => setOpen(open => !open)}
+              type="button"
+              onClick={() => setOpen(!open)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
               <svg
                 className="h-6 w-6"

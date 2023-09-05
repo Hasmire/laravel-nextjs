@@ -1,23 +1,17 @@
 import { Transition } from '@headlessui/react'
 import { FormEventHandler, useState } from 'react'
-import Input from '@/components/Input'
-import InputError from '@/components/InputError'
-import Label from '@/components/Label'
+import Input from '../../../components/Input'
+import InputError from '../../../components/InputError'
+import Label from '../../../components/Label'
 
-import axios, { csrf } from '@/lib/axios'
-import PrimaryButton from '@/components/PrimaryButton'
+import axios, { csrf } from '../../../lib/axios'
+import PrimaryButton from '../../../components/PrimaryButton'
 
 function UpdatePasswordForm() {
   const [currentPassword, setCurrentPassword] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirmation, setPasswordConfirmation] = useState('')
-
-  const [errors, setErrors] = useState<{
-    email?: string[]
-    password?: string[]
-    current_password?: string[]
-    password_confirmation?: string[]
-  }>({})
+  const [errors, setErrors] = useState<any>([])
   const [status, setStatus] = useState<string | null>(null)
 
   const submitForm: FormEventHandler = async event => {
@@ -25,13 +19,7 @@ function UpdatePasswordForm() {
 
     await csrf()
 
-    setErrors({
-      email: [],
-      password: [],
-      current_password: [],
-      password_confirmation: [],
-    })
-
+    setErrors([])
     setStatus(null)
 
     axios

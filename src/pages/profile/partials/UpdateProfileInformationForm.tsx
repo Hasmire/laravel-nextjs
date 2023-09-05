@@ -1,24 +1,24 @@
 import { useState, FormEventHandler, useEffect } from 'react'
 import { Transition } from '@headlessui/react'
-import Input from '@/components/Input'
-import InputError from '@/components/InputError'
-import Label from '@/components/Label'
-import axios, { csrf } from '@/lib/axios'
-import { useAuth } from '@/hooks/auth'
-import PrimaryButton from '@/components/PrimaryButton'
+import Input from '../../../components/Input'
+import InputError from '../../../components/InputError'
+import Label from '../../../components/Label'
+import axios, { csrf } from '../../../lib/axios'
+import { useAuth } from '../../../hooks/auth'
+import PrimaryButton from '../../../components/PrimaryButton'
 
 function UpdateProfileInformationForm() {
   const { user, resendEmailVerification } = useAuth({ middleware: 'auth' })
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState<any>([])
   const [status, setStatus] = useState(null)
 
   useEffect(() => {
     if (user !== undefined) {
-      setName(user.name)
-      setEmail(user.email)
+      setName(user.name ?? '')
+      setEmail(user.email ?? '')
     }
   }, [user])
 
@@ -90,6 +90,7 @@ function UpdateProfileInformationForm() {
             <p className="text-sm mt-2 text-gray-800 dark:text-gray-200">
               Your email address is unverified.
               <button
+                type="button"
                 className="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                 onClick={() =>
                   resendEmailVerification({
