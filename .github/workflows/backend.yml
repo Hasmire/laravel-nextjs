@@ -1,0 +1,28 @@
+name: Backend CI/CD
+
+on:
+  push:
+    branches:
+      - main # Adjust the branch as needed
+
+jobs:
+  laravel:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.x
+
+      - name: Install Composer Dependencies
+        run: composer install --no-interaction --no-progress --no-suggest
+
+      - name: Run PHPUnit
+        run: php vendor/bin/phpunit
+
+      - name: Run PHP-CS-Fixer
+        run: php vendor/bin/php-cs-fixer fix --dry-run --diff
