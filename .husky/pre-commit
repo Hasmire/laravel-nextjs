@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run ESLint and Prettier
+npx lint-staged
+
+# Run PHP-CS-Fixer
+php vendor/bin/php-cs-fixer fix
+
+# Run PHPUnit
+php vendor/bin/phpunit
