@@ -13,8 +13,12 @@
     "source.fixAll": true
   },
   "[php]": {
-    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    "editor.defaultFormatter": "junstyle.php-cs-fixer"
   },
   "intelephense.format.enable": true,
-  "intelephense.format.braces": "k&r"
+  "intelephense.format.braces": "k&r",
+  "editor.tabSize": 2,
+  "bladeFormatter.format.indentSize": 2,
+  "php-cs-fixer.executablePath": "php-cs-fixer",
+  "php-cs-fixer.executablePathWindows": "php-cs-fixer.bat"
 }
