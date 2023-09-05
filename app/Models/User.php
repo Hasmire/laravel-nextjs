@@ -3,12 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
 
 class User extends Authenticatable {
     use HasApiTokens, HasFactory, Notifiable;
@@ -56,7 +55,7 @@ class User extends Authenticatable {
     /**
      * MustVerifyEmail attribute
      *
-     * @return boolean
+     * @return bool
      */
     public function getMustVerifyEmailAttribute() {
         return auth()->user() instanceof MustVerifyEmail;
