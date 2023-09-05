@@ -9,6 +9,17 @@ jobs:
   laravel:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: 123
+          POSTGRES_DB: test
+        ports:
+          - 5432:5432
+        options: --health-cmd="pg_isready -U postgres" --health-interval=10s --health-timeout=5s --health-retries=3
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -20,6 +31,11 @@ jobs:
 
       - name: Install Composer Dependencies
         run: composer install --no-interaction --no-progress --no-suggest
+
+      - name: Prepare Laravel Application
+        run: |
+          cp .env.example .env
+          php artisan key:generate
 
       - name: Run PHPUnit
         run: php vendor/bin/phpunit
