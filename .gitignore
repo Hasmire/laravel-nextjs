@@ -32,6 +32,7 @@ auth.json
 # Miscellaneous
 .DS_Store
 *.pem
+.php-cs-fixer.cache
 
 # Debug
 npm-debug.log*

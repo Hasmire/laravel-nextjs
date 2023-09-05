@@ -17,6 +17,7 @@
     "airbnb-typescript",
     "plugin:@typescript-eslint/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended"
   ],
