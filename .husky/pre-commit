@@ -8,4 +8,4 @@ npx lint-staged
 php vendor/bin/php-cs-fixer fix
 
 # Run PHPUnit
-php vendor/bin/phpunit
+php artisan test

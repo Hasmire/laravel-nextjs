@@ -38,7 +38,7 @@ jobs:
           php artisan key:generate
 
       - name: Run PHPUnit
-        run: php vendor/bin/phpunit
+        run: php artisan test
 
       - name: Run PHP-CS-Fixer
         run: php vendor/bin/php-cs-fixer fix --dry-run --diff
