@@ -1,4 +1,4 @@
-# Laravel Breeze - Next.js Edition with TypeScript 🏝️
+# Laravel Breeze - Next.js Edition with TypeScript 🏝️ test
 ## Introduction
 
 ---
