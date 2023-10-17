@@ -40,5 +40,5 @@ jobs:
       - name: Run PHPUnit
         run: php artisan test
 
-      - name: Run PHP-CS-Fixer
-        run: php vendor/bin/php-cs-fixer fix --dry-run --diff
+      - name: Run Laravel Duster
+        run: composer duster-fix

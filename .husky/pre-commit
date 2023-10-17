@@ -7,5 +7,14 @@ npx lint-staged
 # Format PHP Files
 composer duster-fix
 
+# Clear config cache
+php artisan config:clear
+
 # Run PHPUnit
 php artisan test
+
+# Run seeders again
+php artisan migrate:fresh --seed
+
+# Set the config:cache
+php artisan config:cache
