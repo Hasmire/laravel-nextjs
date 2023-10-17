@@ -4,8 +4,8 @@
 # Run ESLint and Prettier
 npx lint-staged
 
-# Run PHP-CS-Fixer
-php vendor/bin/php-cs-fixer fix
+# Format PHP Files
+composer duster-fix
 
 # Run PHPUnit
 php artisan test

@@ -1,24 +1,18 @@
 {
   "typescript.tsdk": "node_modules\\typescript\\lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "cSpell.words": [
-    "camelcase",
-    "headlessui",
-    "linebreak",
-    "tailwindcss",
-    "textnodes"
-  ],
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
-  "[php]": {
-    "editor.defaultFormatter": "junstyle.php-cs-fixer"
-  },
   "intelephense.format.enable": true,
   "intelephense.format.braces": "k&r",
+  "[php]": {
+    "editor.defaultFormatter": "open-southeners.laravel-pint"
+  },
+  "[blade.php]": {
+    "editor.defaultFormatter": "shufo.vscode-blade-formatter"
+  },
+  "[css, js, jsx, ts, tsx]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.tabSize": 2,
   "bladeFormatter.format.indentSize": 2,
-  "php-cs-fixer.executablePath": "php-cs-fixer",
-  "php-cs-fixer.executablePathWindows": "php-cs-fixer.bat"
+  "editor.formatOnSave": true
 }
