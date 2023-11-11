@@ -52,6 +52,9 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix"
+    ],
+    "**/*.php*": [
+      "vendor/bin/duster lint"
     ]
   }
 }
