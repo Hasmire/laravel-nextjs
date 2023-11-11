@@ -1,8 +1,9 @@
 import Head from 'next/head'
-import AppLayout from '../../components/Layouts/AppLayout'
-import UpdateProfileInformationForm from './partials/UpdateProfileInformationForm'
+
 import DeleteUserForm from './partials/DeleteUserForm'
 import UpdatePasswordForm from './partials/UpdatePasswordForm'
+import UpdateProfileInformationForm from './partials/UpdateProfileInformationForm'
+import AppLayout from '../../components/Layouts/AppLayout'
 
 function Profile() {
   return (

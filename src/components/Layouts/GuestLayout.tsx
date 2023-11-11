@@ -1,4 +1,5 @@
 import { PropsWithChildren } from 'react'
+
 import Head from 'next/head'
 
 function GuestLayout({ children }: PropsWithChildren) {

@@ -43,6 +43,35 @@
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "react-hooks/exhaustive-deps": 0,
     "import/prefer-default-export": 0,
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          ["sibling", "parent"],
+          "index"
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@mwell-healthhub/**",
+            "group": "external",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"]
+      }
+    ],
     "no-console": "warn",
     "no-nested-ternary": 0,
     "no-underscore-dangle": 0,
@@ -65,5 +94,13 @@
       { "endOfLine": "auto" },
       { "usePrettierrc": true }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["tailwind.config.js"],
+      "parserOptions": {
+        "project": []
+      }
+    }
+  ]
 }

@@ -1,13 +1,15 @@
 import { useState, FormEventHandler } from 'react'
+
 import Head from 'next/head'
+
 import AuthCard from '../components/AuthCard'
 import AuthSessionStatus from '../components/AuthSessionStatus'
-import GuestLayout from '../components/Layouts/GuestLayout'
 import Input from '../components/Input'
 import InputError from '../components/InputError'
 import Label from '../components/Label'
-import { useAuth } from '../hooks/auth'
+import GuestLayout from '../components/Layouts/GuestLayout'
 import PrimaryButton from '../components/PrimaryButton'
+import { useAuth } from '../hooks/auth'
 
 function ForgotPassword() {
   const { forgotPassword } = useAuth({

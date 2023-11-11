@@ -1,13 +1,15 @@
-import Link from 'next/link'
 import { useState, FormEventHandler } from 'react'
+
 import Head from 'next/head'
+import Link from 'next/link'
+
 import AuthCard from '../components/AuthCard'
-import GuestLayout from '../components/Layouts/GuestLayout'
 import Input from '../components/Input'
 import InputError from '../components/InputError'
 import Label from '../components/Label'
-import { useAuth } from '../hooks/auth'
+import GuestLayout from '../components/Layouts/GuestLayout'
 import PrimaryButton from '../components/PrimaryButton'
+import { useAuth } from '../hooks/auth'
 
 function Register() {
   const { register } = useAuth({

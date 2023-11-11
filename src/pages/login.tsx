@@ -1,17 +1,19 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import Link from 'next/link'
 import { useEffect, useState, FormEventHandler } from 'react'
-import { useRouter } from 'next/router'
+
 import Head from 'next/head'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+
 import AuthCard from '../components/AuthCard'
 import AuthSessionStatus from '../components/AuthSessionStatus'
-import GuestLayout from '../components/Layouts/GuestLayout'
+import Checkbox from '../components/Checkbox'
 import Input from '../components/Input'
 import InputError from '../components/InputError'
 import Label from '../components/Label'
-import { useAuth } from '../hooks/auth'
-import Checkbox from '../components/Checkbox'
+import GuestLayout from '../components/Layouts/GuestLayout'
 import PrimaryButton from '../components/PrimaryButton'
+import { useAuth } from '../hooks/auth'
 
 function Login() {
   const { query } = useRouter()

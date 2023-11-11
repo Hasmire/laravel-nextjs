@@ -1,6 +1,8 @@
-import useSWR from 'swr'
 import { useEffect, Dispatch, SetStateAction } from 'react'
+
 import { useRouter } from 'next/router'
+import useSWR from 'swr'
+
 import axios, { csrf } from '../lib/axios'
 
 declare type AuthMiddleware = 'auth' | 'guest'

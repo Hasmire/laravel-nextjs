@@ -1,4 +1,5 @@
 import Head from 'next/head'
+
 import AppLayout from '../components/Layouts/AppLayout'
 
 function Dashboard() {

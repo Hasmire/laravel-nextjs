@@ -1,11 +1,13 @@
 import { useState, FormEventHandler, useEffect } from 'react'
+
 import { Transition } from '@headlessui/react'
+
 import Input from '../../../components/Input'
 import InputError from '../../../components/InputError'
 import Label from '../../../components/Label'
-import axios, { csrf } from '../../../lib/axios'
-import { useAuth } from '../../../hooks/auth'
 import PrimaryButton from '../../../components/PrimaryButton'
+import { useAuth } from '../../../hooks/auth'
+import axios, { csrf } from '../../../lib/axios'
 
 function UpdateProfileInformationForm() {
   const { user, resendEmailVerification } = useAuth({ middleware: 'auth' })

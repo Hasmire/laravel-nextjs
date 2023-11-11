@@ -1,12 +1,14 @@
+import { useState } from 'react'
+
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+
+import { useAuth, User } from '../../hooks/auth'
 import ApplicationLogo from '../ApplicationLogo'
 import Dropdown from '../Dropdown'
+import DropdownLink, { DropdownButton } from '../DropdownLink'
 import NavLink from '../NavLink'
 import ResponsiveNavLink, { ResponsiveNavButton } from '../ResponsiveNavLink'
-import DropdownLink, { DropdownButton } from '../DropdownLink'
-import { useAuth, User } from '../../hooks/auth'
 
 function Navigation(user?: User) {
   const router = useRouter()

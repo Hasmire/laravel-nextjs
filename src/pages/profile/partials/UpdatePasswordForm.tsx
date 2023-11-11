@@ -1,11 +1,12 @@
-import { Transition } from '@headlessui/react'
 import { FormEventHandler, useState } from 'react'
+
+import { Transition } from '@headlessui/react'
+
 import Input from '../../../components/Input'
 import InputError from '../../../components/InputError'
 import Label from '../../../components/Label'
-
-import axios, { csrf } from '../../../lib/axios'
 import PrimaryButton from '../../../components/PrimaryButton'
+import axios, { csrf } from '../../../lib/axios'
 
 function UpdatePasswordForm() {
   const [currentPassword, setCurrentPassword] = useState('')

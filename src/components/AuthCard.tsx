@@ -1,5 +1,7 @@
 import { PropsWithChildren } from 'react'
+
 import Link from 'next/link'
+
 import ApplicationLogo from './ApplicationLogo'
 
 function AuthCard({ children }: PropsWithChildren) {

@@ -1,12 +1,13 @@
 import { FormEventHandler, useRef, useState } from 'react'
+
 import DangerButton from '../../../components/DangerButton'
-import axios, { csrf } from '../../../lib/axios'
-import Modal from '../../../components/Modal'
-import Label from '../../../components/Label'
 import Input from '../../../components/Input'
 import InputError from '../../../components/InputError'
+import Label from '../../../components/Label'
+import Modal from '../../../components/Modal'
 import SecondaryButton from '../../../components/SecondaryButton'
 import { useAuth } from '../../../hooks/auth'
+import axios, { csrf } from '../../../lib/axios'
 
 function DeleteUserForm() {
   const { logout } = useAuth({ middleware: 'auth' })

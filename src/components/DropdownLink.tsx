@@ -1,6 +1,7 @@
-import Link, { LinkProps } from 'next/link'
-import { Menu } from '@headlessui/react'
 import React, { PropsWithChildren, ButtonHTMLAttributes } from 'react'
+
+import { Menu } from '@headlessui/react'
+import Link, { LinkProps } from 'next/link'
 
 function DropdownLink({ children, ...props }: PropsWithChildren<LinkProps>) {
   return (
