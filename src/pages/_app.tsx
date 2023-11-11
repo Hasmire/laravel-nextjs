@@ -1,4 +1,5 @@
 import 'tailwindcss/tailwind.css'
+import '../../public/css/globals.css'
 
 import React from 'react'
 

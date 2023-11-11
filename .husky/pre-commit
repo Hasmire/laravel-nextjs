@@ -3,3 +3,6 @@
 
 # Run ESLint and Prettier
 npx lint-staged
+
+# Set the config:cache
+php artisan config:cache
