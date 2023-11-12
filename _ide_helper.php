@@ -5,7 +5,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 10.31.0.
+ * Generated for Laravel 10.22.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -505,20 +505,6 @@ namespace Illuminate\Support\Facades {
         {
             /** @var \Illuminate\Foundation\Application $instance */
             return $instance->runningInConsole();
-        }
-
-        /**
-         * Determine if the application is running any of the given console commands.
-         *
-         * @param  string|array  $commands
-         * @return bool
-         *
-         * @static
-         */
-        public static function runningConsoleCommand(...$commands)
-        {
-            /** @var \Illuminate\Foundation\Application $instance */
-            return $instance->runningConsoleCommand(...$commands);
         }
 
         /**
@@ -3350,8 +3336,6 @@ namespace Illuminate\Support\Facades {
          *
          * @param  string  $path
          * @return bool
-         *
-         * @throws \ErrorException
          *
          * @static
          */
@@ -6442,20 +6426,6 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         * Execute the given callback without "pretending".
-         *
-         * @param  \Closure  $callback
-         * @return mixed
-         *
-         * @static
-         */
-        public static function withoutPretending($callback)
-        {            //Method inherited from \Illuminate\Database\Connection
-            /** @var \Illuminate\Database\PostgresConnection $instance */
-            return $instance->withoutPretending($callback);
-        }
-
-        /**
          * Bind values to their parameters in the given statement.
          *
          * @param  \PDOStatement  $statement
@@ -7538,20 +7508,6 @@ namespace Illuminate\Support\Facades {
         {
             /** @var \Illuminate\Events\Dispatcher $instance */
             return $instance->setQueueResolver($resolver);
-        }
-
-        /**
-         * Set the database transaction manager resolver implementation.
-         *
-         * @param  callable  $resolver
-         * @return \Illuminate\Events\Dispatcher
-         *
-         * @static
-         */
-        public static function setTransactionManagerResolver($resolver)
-        {
-            /** @var \Illuminate\Events\Dispatcher $instance */
-            return $instance->setTransactionManagerResolver($resolver);
         }
 
         /**
@@ -15481,7 +15437,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Create a new redirect response to a controller action.
          *
-         * @param  array|string  $action
+         * @param  string  $action
          * @param  mixed  $parameters
          * @param  int  $status
          * @param  array  $headers
@@ -16842,17 +16798,17 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
-         * Get the columns for a given table.
+         * Get the column listing for a given table.
          *
          * @param  string  $table
          * @return array
          *
          * @static
          */
-        public static function getColumns($table)
+        public static function getColumnListing($table)
         {
             /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
-            return $instance->getColumns($table);
+            return $instance->getColumnListing($table);
         }
 
         /**
@@ -16987,29 +16943,14 @@ namespace Illuminate\Support\Facades {
          *
          * @param  string  $table
          * @param  string  $column
-         * @param  bool  $fullDefinition
          * @return string
          *
          * @static
          */
-        public static function getColumnType($table, $column, $fullDefinition = false)
+        public static function getColumnType($table, $column)
         {            //Method inherited from \Illuminate\Database\Schema\Builder
             /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
-            return $instance->getColumnType($table, $column, $fullDefinition);
-        }
-
-        /**
-         * Get the column listing for a given table.
-         *
-         * @param  string  $table
-         * @return array
-         *
-         * @static
-         */
-        public static function getColumnListing($table)
-        {            //Method inherited from \Illuminate\Database\Schema\Builder
-            /** @var \Illuminate\Database\Schema\PostgresBuilder $instance */
-            return $instance->getColumnListing($table);
+            return $instance->getColumnType($table, $column);
         }
 
         /**
@@ -17210,32 +17151,6 @@ namespace Illuminate\Support\Facades {
         {
             /** @var \Illuminate\Session\SessionManager $instance */
             return $instance->blockDriver();
-        }
-
-        /**
-         * Get the maximum number of seconds the session lock should be held for.
-         *
-         * @return int
-         *
-         * @static
-         */
-        public static function defaultRouteBlockLockSeconds()
-        {
-            /** @var \Illuminate\Session\SessionManager $instance */
-            return $instance->defaultRouteBlockLockSeconds();
-        }
-
-        /**
-         * Get the maximum number of seconds to wait while attempting to acquire a route block session lock.
-         *
-         * @return int
-         *
-         * @static
-         */
-        public static function defaultRouteBlockWaitSeconds()
-        {
-            /** @var \Illuminate\Session\SessionManager $instance */
-            return $instance->defaultRouteBlockWaitSeconds();
         }
 
         /**
@@ -21313,6 +21228,24 @@ namespace Illuminate\Support {
 
 }
 
+namespace L5Swagger {
+
+    class L5SwaggerFacade
+    {
+        /**
+         * @throws L5SwaggerException
+         *
+         * @static
+         */
+        public static function generateDocs()
+        {
+            /** @var \L5Swagger\Generator $instance */
+            return $instance->generateDocs();
+        }
+    }
+
+}
+
 namespace Spatie\LaravelIgnition\Facades {
     /**
      * @see \Spatie\FlareClient\Flare
@@ -22820,41 +22753,6 @@ namespace {
         }
 
         /**
-         * Chunk the results of a query by comparing IDs in descending order.
-         *
-         * @param  int  $count
-         * @param  callable  $callback
-         * @param  string|null  $column
-         * @param  string|null  $alias
-         * @return bool
-         *
-         * @static
-         */
-        public static function chunkByIdDesc($count, $callback, $column = null, $alias = null)
-        {
-            /** @var \Illuminate\Database\Eloquent\Builder $instance */
-            return $instance->chunkByIdDesc($count, $callback, $column, $alias);
-        }
-
-        /**
-         * Chunk the results of a query by comparing IDs in a given order.
-         *
-         * @param  int  $count
-         * @param  callable  $callback
-         * @param  string|null  $column
-         * @param  string|null  $alias
-         * @param  bool  $descending
-         * @return bool
-         *
-         * @static
-         */
-        public static function orderedChunkById($count, $callback, $column = null, $alias = null, $descending = false)
-        {
-            /** @var \Illuminate\Database\Eloquent\Builder $instance */
-            return $instance->orderedChunkById($count, $callback, $column, $alias, $descending);
-        }
-
-        /**
          * Execute a callback over each item while chunking by ID.
          *
          * @param  callable  $callback
@@ -23742,7 +23640,7 @@ namespace {
          * @param  \Illuminate\Contracts\Database\Query\Expression|string  $table
          * @param  \Closure|string  $first
          * @param  string|null  $operator
-         * @param  \Illuminate\Contracts\Database\Query\Expression|string|null  $second
+         * @param  string|null  $second
          * @param  string  $type
          * @param  bool  $where
          * @return \Illuminate\Database\Query\Builder
@@ -23761,7 +23659,7 @@ namespace {
          * @param  \Illuminate\Contracts\Database\Query\Expression|string  $table
          * @param  \Closure|string  $first
          * @param  string  $operator
-         * @param  \Illuminate\Contracts\Database\Query\Expression|string  $second
+         * @param  string  $second
          * @param  string  $type
          * @return \Illuminate\Database\Query\Builder
          *
@@ -23780,7 +23678,7 @@ namespace {
          * @param  string  $as
          * @param  \Closure|string  $first
          * @param  string|null  $operator
-         * @param  \Illuminate\Contracts\Database\Query\Expression|string|null  $second
+         * @param  string|null  $second
          * @param  string  $type
          * @param  bool  $where
          * @return \Illuminate\Database\Query\Builder
@@ -23801,7 +23699,7 @@ namespace {
          * @param  \Illuminate\Contracts\Database\Query\Expression|string  $table
          * @param  \Closure|string  $first
          * @param  string|null  $operator
-         * @param  \Illuminate\Contracts\Database\Query\Expression|string|null  $second
+         * @param  string|null  $second
          * @return \Illuminate\Database\Query\Builder
          *
          * @static
@@ -23818,7 +23716,7 @@ namespace {
          * @param  \Illuminate\Contracts\Database\Query\Expression|string  $table
          * @param  \Closure|string  $first
          * @param  string  $operator
-         * @param  \Illuminate\Contracts\Database\Query\Expression|string|null  $second
+         * @param  string  $second
          * @return \Illuminate\Database\Query\Builder
          *
          * @static
@@ -23836,7 +23734,7 @@ namespace {
          * @param  string  $as
          * @param  \Closure|string  $first
          * @param  string|null  $operator
-         * @param  \Illuminate\Contracts\Database\Query\Expression|string|null  $second
+         * @param  string|null  $second
          * @return \Illuminate\Database\Query\Builder
          *
          * @static
@@ -23853,7 +23751,7 @@ namespace {
          * @param  \Illuminate\Contracts\Database\Query\Expression|string  $table
          * @param  \Closure|string  $first
          * @param  string|null  $operator
-         * @param  \Illuminate\Contracts\Database\Query\Expression|string|null  $second
+         * @param  string|null  $second
          * @return \Illuminate\Database\Query\Builder
          *
          * @static
@@ -23870,7 +23768,7 @@ namespace {
          * @param  \Illuminate\Contracts\Database\Query\Expression|string  $table
          * @param  \Closure|string  $first
          * @param  string  $operator
-         * @param  \Illuminate\Contracts\Database\Query\Expression|string  $second
+         * @param  string  $second
          * @return \Illuminate\Database\Query\Builder
          *
          * @static
@@ -23888,7 +23786,7 @@ namespace {
          * @param  string  $as
          * @param  \Closure|string  $first
          * @param  string|null  $operator
-         * @param  \Illuminate\Contracts\Database\Query\Expression|string|null  $second
+         * @param  string|null  $second
          * @return \Illuminate\Database\Query\Builder
          *
          * @static
@@ -23905,7 +23803,7 @@ namespace {
          * @param  \Illuminate\Contracts\Database\Query\Expression|string  $table
          * @param  \Closure|string|null  $first
          * @param  string|null  $operator
-         * @param  \Illuminate\Contracts\Database\Query\Expression|string|null  $second
+         * @param  string|null  $second
          * @return \Illuminate\Database\Query\Builder
          *
          * @static
@@ -26100,6 +25998,9 @@ namespace {
     {
     }
     class Vite extends \Illuminate\Support\Facades\Vite
+    {
+    }
+    class L5Swagger extends \L5Swagger\L5SwaggerFacade
     {
     }
     class Flare extends \Spatie\LaravelIgnition\Facades\Flare

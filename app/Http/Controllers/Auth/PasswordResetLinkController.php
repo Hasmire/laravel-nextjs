@@ -8,12 +8,55 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * @OA\Post(
+ *     path="/forgot-password",
+ *     operationId="sendResetLink",
+ *     tags={"Authentication"},
+ *     summary="Send password reset link",
+ *     description="Handles an incoming request to send a password reset link to the user's email.",
+ *     security={{"sanctum": {}}},
+ *
+ *     @OA\RequestBody(
+ *         required=true,
+ *         description="User's email for password reset link",
+ *
+ *         @OA\JsonContent(
+ *             required={"email"},
+ *
+ *             @OA\Property(property="email", type="string", format="email", description="User's email address"),
+ *         )
+ *     ),
+ *
+ *     @OA\Response(
+ *         response=200,
+ *         description="Password reset link sent successfully",
+ *
+ *         @OA\JsonContent(
+ *             type="object",
+ *
+ *             @OA\Property(property="status", type="string", example="passwords.sent"),
+ *         )
+ *     ),
+ *
+ *     @OA\Response(
+ *         response=422,
+ *         description="Validation error",
+ *
+ *         @OA\JsonContent(
+ *             type="object",
+ *
+ *             @OA\Property(property="email", type="array", @OA\Items(type="string")),
+ *         )
+ *     ),
+ * )
+ */
 class PasswordResetLinkController extends Controller
 {
     /**
      * Handle an incoming password reset link request.
      *
-     * @throws \Illuminate\Validation\ValidationException
+     * @throws ValidationException
      */
     public function store(Request $request): JsonResponse
     {
